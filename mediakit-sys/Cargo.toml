@@ -1,0 +1,20 @@
+[package]
+name = "mediakit-sys"
+version = "0.1.0"
+authors = ["Jessica Hamilton <jessica.l.hamilton@gmail.com>"]
+description = "Low-level interface and binding generation for Haiku's Media Kit."
+repository = "https://github.com/RustAudio/cpal/"
+#documentation = "https://docs.rs/asio-sys"
+#license = "Apache-2.0"
+#keywords = ["audio", "sound", "haiku"]
+build = "build.rs"
+
+[target.'cfg(any(target_os = "haiku"))'.build-dependencies]
+bindgen = "0.59.1"
+#walkdir = "2"
+#cc = "1.0.71"
+
+#[dependencies]
+#lazy_static = "1.0.0"
+#num-derive = "0.3"
+#num-traits = "0.2"

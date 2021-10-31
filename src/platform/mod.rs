@@ -574,6 +574,25 @@ mod platform_impl {
     }
 }
 
+#[cfg(target_os = "haiku")]
+mod platform_impl {
+    pub use crate::host::haiku::{
+        Device as MediaKitDevice, Devices as MediaKitDevices,
+        Host as MediaKitHost, Stream as MediaKitStream,
+        SupportedInputConfigs as MediaKitSupportedInputConfigs,
+        SupportedOutputConfigs as MediaKitSupportedOutputConfigs,
+    };
+
+    impl_platform_host!(MediaKit mediaKit "Haiku Media Kit");
+
+    /// The default host for the current compilation target platform.
+    pub fn default_host() -> Host {
+        MediaKitHost::new()
+            .expect("the default host should always be available")
+            .into()
+    }
+}
+
 #[cfg(not(any(
     windows,
     target_os = "linux",
@@ -583,6 +602,7 @@ mod platform_impl {
     target_os = "ios",
     target_os = "emscripten",
     target_os = "android",
+    target_os = "haiku",
     all(target_arch = "wasm32", feature = "wasm-bindgen"),
 )))]
 mod platform_impl {

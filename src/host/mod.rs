@@ -18,3 +18,5 @@ pub(crate) mod oboe;
 pub(crate) mod wasapi;
 #[cfg(all(target_arch = "wasm32", feature = "wasm-bindgen"))]
 pub(crate) mod webaudio;
+#[cfg(target_os = "haiku")]
+pub(crate) mod mediakit;

@@ -576,14 +576,14 @@ mod platform_impl {
 
 #[cfg(target_os = "haiku")]
 mod platform_impl {
-    pub use crate::host::haiku::{
+    pub use crate::host::mediakit::{
         Device as MediaKitDevice, Devices as MediaKitDevices,
         Host as MediaKitHost, Stream as MediaKitStream,
         SupportedInputConfigs as MediaKitSupportedInputConfigs,
         SupportedOutputConfigs as MediaKitSupportedOutputConfigs,
     };
 
-    impl_platform_host!(MediaKit mediaKit "Haiku Media Kit");
+    impl_platform_host!(MediaKit mediakit "Haiku Media Kit");
 
     /// The default host for the current compilation target platform.
     pub fn default_host() -> Host {

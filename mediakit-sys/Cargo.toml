@@ -10,7 +10,7 @@ repository = "https://github.com/RustAudio/cpal/"
 build = "build.rs"
 
 [target.'cfg(any(target_os = "haiku"))'.build-dependencies]
-bindgen = "0.59.1"
+bindgen = "0.54.0"
 #walkdir = "2"
 #cc = "1.0.71"
 

@@ -10,7 +10,7 @@ fn main() {
 
         // Tell cargo to invalidate the built crate whenever the
         // wrapper changes.
-        println!("cargo:rerun-if-changed=wrapper.h");
+        println!("cargo:rerun-if-changed=mediakit-link/wrapper.h");
 
         // The bindgen::Builder is the main entry point to
         // bindgen, and lets you build up options for the
@@ -18,7 +18,7 @@ fn main() {
         let bindings = bindgen::Builder::default()
                 // The input header we would like to generate
                 // bindings for.
-                .header("wrapper.h")
+                .header("mediakit-link/wrapper.h")
                 // Tell cargo to invalidate the built create
                 // whenever any of the included header files
                 // changed.
@@ -32,12 +32,12 @@ fn main() {
                 .clang_arg("-I")
                 .clang_arg("/system/develop/tools/lib/gcc/x86_64-unknown-haiku/8.3.0/include/c++/x86_64-unknown-haiku")
                 // Allow specific types, etc.
-                .allowlist_type("BMediaRoster")
-                .allowlist_type("BBuffer")
-                .allowlist_type("BMediaNode")
-                .allowlist_type("media_node")
-                .allowlist_type("media_format")
-                .allowlist_type("media_output")
+                .whitelist_type("BMediaRoster")
+                .whitelist_type("BBuffer")
+                .whitelist_type("BMediaNode")
+                .whitelist_type("media_node")
+                .whitelist_type("media_format")
+                .whitelist_type("media_output")
                 // Finish the builder and generate the bindings.
                 .generate()
                 // Unwrap the Result and panic on failure.

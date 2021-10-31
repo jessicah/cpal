@@ -32,12 +32,12 @@ fn main() {
                 .clang_arg("-I")
                 .clang_arg("/system/develop/tools/lib/gcc/x86_64-unknown-haiku/8.3.0/include/c++/x86_64-unknown-haiku")
                 // Allow specific types, etc.
-                .whitelist_type("BMediaRoster")
-                .whitelist_type("BBuffer")
-                .whitelist_type("BMediaNode")
-                .whitelist_type("media_node")
-                .whitelist_type("media_format")
-                .whitelist_type("media_output")
+                .whitelist_type("BSoundPlayer")
+                // .whitelist_type("media_raw_audio_format")
+                // .whitelist_type("media_node")
+                // .whitelist_type("media_format")
+                // .whitelist_type("media_input")
+                // .whitelist_type("media_output")
                 // Finish the builder and generate the bindings.
                 .generate()
                 // Unwrap the Result and panic on failure.
